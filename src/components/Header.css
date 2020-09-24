@@ -1,0 +1,22 @@
+.header {
+    background-color: white;
+    /* position: fixed; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em 5em;
+    box-shadow: 0 0 0.4em 0 rgba(0, 0, 0, 0.1);
+}
+
+.header > h2 {
+    font-weight: bolder;
+}
+
+.header > .themeToggle {
+    padding: 1em 2em;
+    font-size: 1em;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+}
