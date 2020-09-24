@@ -9,11 +9,11 @@ function Filters() {
 
     return (
         <div className="filters">
-            <div class="filters__country">
+            <div className="filters__country">
                 <FontAwesomeIcon icon={faSearch} />
                 <input type="text" name="countryPicker" id="countryPicker" placeholder="Search for a country..."/>
             </div>
-            <div class="filters__region">
+            <div className="filters__region">
                <select name="Filter by Region" id="regionFiter">
                    <option value="">Filter By Region</option>
                    <option value="Africa">Africa</option>
