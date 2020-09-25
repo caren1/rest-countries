@@ -1,15 +1,15 @@
 import React from 'react'
 import './CountryCard.css'
 
-function CountryCard() {
+function CountryCard({ name, population, region, capital, flag }) {
     return (
         <div className="countryCard">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1920px-Flag_of_Germany.svg.png" alt="" />
+            <img src={flag} alt="" />
             <div className="countryCard__details">
-                <h3>Germany</h3>
-                <p><strong>Population:</strong> 81,7770,900</p>
-                <p><strong>Region:</strong> Europe</p>
-                <p><strong>Capital:</strong> Berlin</p>  
+                <h3>{name}</h3>
+                <p><strong>Population:</strong> {population}</p>
+                <p><strong>Region:</strong> {region}</p>
+                <p><strong>Capital:</strong> {capital}</p>  
             </div>
                       
         
