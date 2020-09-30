@@ -3,7 +3,6 @@
     display: flex;
     margin: 0 auto;
     flex-direction: column;
-
     
 }
 
@@ -42,4 +41,20 @@
 .filters__region > select {
     outline: none;
     border: none;
+}
+
+@media (min-width: 700px) {
+    .filters{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .filters__country {
+        max-width: 35%;
+    }
+    
+    .filters__region {
+        margin-top: 0;
+    }
 }

@@ -6,27 +6,39 @@ import Filters from './components/Filters'
 import CountryCard from './components/CountryCard'
 
 import { getAll } from './api/index'
+import CountryList from './components/CountryList';
 
 function App() {
 
 
   const [ countries, setCountries ] = useState([])
 
+  // useEffect(async () => {
+  //   const data = getAll();
+  //   if(data) {
+  //     console.log(data);
+  //     setCountries(data);
+  //   }
+  // }, []);
+
   useEffect(() => {
-    setCountries(getAll());
-  }, []);
+    async function getAllCountries () {
+      const data = await getAll();
+      if (data) {
+        console.log(data);
+        setCountries(data);
+      }
+    }
+    getAllCountries();
+  }, [])
 
   return (
     <div className="app">
       <Header />
       <Filters />
-      <div className="countries">
+        <CountryList countries={countries} />
+      {/* { countries && <CountryCard country={countries[0]}/>} */}
       
-      {/* <CountryCard />
-      <CountryCard />
-      <CountryCard />
-      <CountryCard /> */}
-      </div>
       
     </div>
   );

@@ -1,0 +1,12 @@
+.countries {
+    padding: 1em 2em;
+}
+
+@media (min-width: 700px) {
+    .countries {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
