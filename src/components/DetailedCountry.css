@@ -1,0 +1,58 @@
+.detailedCountry {
+    padding: 1em 2em;
+    line-height: 2.2em;
+    font-size: 14px;
+}
+
+.detailedCountry >  button {
+    margin: 2em 0;
+    display: block;
+}
+
+.flag {
+    margin: 3em 0;
+}
+
+.flag > img {
+    width: 100%;
+}
+
+h1 {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.levelDomain {
+    margin-top: 2em;
+}
+
+.btn-primary {
+    background-color: white;
+    padding: 0.8em 3em;
+    border-radius: 1px;
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.05);
+    border: none;
+    transition: transform 250ms ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.borderCountries {
+    margin-top: 2em;
+}
+
+.borderCountries__borders {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.8em;
+    flex-wrap: wrap;
+}
+
+.borderCountries__borders > button {
+    padding: 0.7em 1.5em;
+}
+

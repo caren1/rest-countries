@@ -4,7 +4,7 @@ import './CountryCard.css'
 function CountryCard({country : { name, population, region, capital, flag }}) {
     return (
         <div className="countryCard">
-            <div class="countryCard__image">
+            <div className="countryCard__image">
                 <img src={flag} alt="" />
             </div>
             <div className="countryCard__details">
@@ -13,8 +13,6 @@ function CountryCard({country : { name, population, region, capital, flag }}) {
                 <p><strong>Region:</strong> {region}</p>
                 <p><strong>Capital:</strong> {capital}</p>  
             </div>
-                      
-        
         </div>
     )
 }

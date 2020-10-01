@@ -7,19 +7,12 @@ import CountryCard from './components/CountryCard'
 
 import { getAll } from './api/index'
 import CountryList from './components/CountryList';
+import DetailedCountry from './components/DetailedCountry';
 
 function App() {
 
 
   const [ countries, setCountries ] = useState([])
-
-  // useEffect(async () => {
-  //   const data = getAll();
-  //   if(data) {
-  //     console.log(data);
-  //     setCountries(data);
-  //   }
-  // }, []);
 
   useEffect(() => {
     async function getAllCountries () {
@@ -36,7 +29,8 @@ function App() {
     <div className="app">
       <Header />
       <Filters />
-        <CountryList countries={countries} />
+      <CountryList countries={countries} />
+      {/* <DetailedCountry /> */}
       {/* { countries && <CountryCard country={countries[0]}/>} */}
       
       
