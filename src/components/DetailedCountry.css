@@ -1,4 +1,4 @@
-.detailedCountry {
+  .detailedCountry {
     padding: 1em 2em;
     line-height: 2.2em;
     font-size: 14px;
@@ -41,13 +41,30 @@ h1 {
     cursor: pointer;
 }
 
+.btn-secondary {
+    background-color: white;
+    border-radius: 1px;
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.05);
+    border: none;
+    transition: transform 250ms ease-in-out;
+    margin: 0.2em;
+    /* padding: 0.5em 2em; */
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 .borderCountries {
     margin-top: 2em;
 }
 
 .borderCountries__borders {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: cen bter; */
+    /* align-items: center; */
     margin-top: 0.8em;
     flex-wrap: wrap;
 }

@@ -1,9 +1,12 @@
 import React from 'react'
 import './CountryCard.css'
 
-function CountryCard({country : { name, population, region, capital, flag }}) {
+function CountryCard({country, showDetails}) {
+
+    const { name, population, region, capital, flag } = country;
+
     return (
-        <div className="countryCard">
+        <div className="countryCard" onClick={() => showDetails(country)}>
             <div className="countryCard__image">
                 <img src={flag} alt="" />
             </div>

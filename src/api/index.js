@@ -5,7 +5,7 @@ const baseUrl = 'https://restcountries.eu/rest/v2'
 export const getAll = async () => {
     try {
         const { data } = await axios.get(`${baseUrl}/all`);
-        console.log(data);
+        // console.log(data);
         return data;
 
 

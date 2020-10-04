@@ -1,23 +1,28 @@
 import React from 'react'
 import CountryCard from './CountryCard'
+import DetailedCountry from './DetailedCountry'
 import './CountryList.css'
 
 
-function CountryList({ countries }) {
-    console.log(countries);
+const CountryList = ({ countries, onShowCountryDetails, showCountryDetails })  => {
+    // console.log(countries);
 
 
-    if (!countries) {
-        return 'Loading...'
+    if (!showCountryDetails) {
+        return (
+            <div className="countries">
+                {countries.map((country) => (
+                    <CountryCard key={country.numericCode} country={country} showDetails={onShowCountryDetails}/>
+                ))}
+            </div>
+        )
+    } else {
+        return (
+            <DetailedCountry country={showCountryDetails}/> 
+        )
     }
 
-    return (
-        <div className="countries">
-            {countries.map((country) => (
-                <CountryCard key={country.numericCode} country={country}/>
-            ))}
-        </div>
-    )
+    
 }
 
 export default CountryList

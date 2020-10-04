@@ -11,15 +11,12 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 function Filters(props) {
 
     const handleCountryChange = (event) => {
-        console.log(event.target.value);
         props.handleFilterChange(event.target.value);
     }
 
     const handleRegionSelection = (event) => {
-        console.log(event.target.value);
         props.handleRegionChange(event.target.value);
     }
-
 
     return (
         <div className="filters">
@@ -32,6 +29,7 @@ function Filters(props) {
                    <option value="">Filter By Region</option>
                    <option value="Africa">Africa</option>
                </select>
+
             </div>
             
             

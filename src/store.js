@@ -5,7 +5,7 @@ import regionReducer from './reducers/regionReducer'
 
 const reducer = combineReducers({
     filter: filterReducer,
-    region: regionReducer
+    region: regionReducer,
 })
 
 const store = createStore(reducer)

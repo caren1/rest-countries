@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import './App.css';
+
 
 import Header from './components/Header'
 import Filters from './components/Filters'
-import CountryCard from './components/CountryCard'
 
 import { getAll } from './api/index'
 import CountryList from './components/CountryList';
-import DetailedCountry from './components/DetailedCountry';
 
 function App() {
 
@@ -16,6 +15,12 @@ function App() {
   const countryRegion = useSelector(state => state.region)
 
   const [ countries, setCountries ] = useState([])
+  const [ showCountryDetails, setShowCountryDetails ] = useState()
+
+  const onShowCountryDetails = (country) => {
+    setShowCountryDetails(country)
+    console.log(showCountryDetails);
+  }
 
   useEffect(() => {
     async function getAllCountries () {
@@ -28,17 +33,19 @@ function App() {
     getAllCountries();
   }, [])
 
+
   const filterByBoth = countries.filter((country) => {
-      if (country.name.toLowerCase().includes(countryFilter) && country.region.toLowerCase().includes(countryRegion.toLowerCase()))
+      if (country.name.toLowerCase().includes(countryFilter) && country.region.toLowerCase().includes(countryRegion.toLowerCase())){
         return true;
-      
+      }
+      return false;
   })
 
   return (
     <div className="app">
       <Header />
       <Filters />
-      <CountryList countries={filterByBoth} />
+      <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails}/>
       {/* <DetailedCountry /> */}
       {/* { countries && <CountryCard country={countries[0]}/>} */}
       
