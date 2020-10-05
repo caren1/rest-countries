@@ -4,7 +4,7 @@ import DetailedCountry from './DetailedCountry'
 import './CountryList.css'
 
 
-const CountryList = ({ countries, onShowCountryDetails, showCountryDetails })  => {
+const CountryList = ({ countries, onShowCountryDetails, showCountryDetails, hideCountryDetails })  => {
     // console.log(countries);
 
 
@@ -18,7 +18,7 @@ const CountryList = ({ countries, onShowCountryDetails, showCountryDetails })  =
         )
     } else {
         return (
-            <DetailedCountry country={showCountryDetails}/> 
+            <DetailedCountry country={showCountryDetails} hideDetails={hideCountryDetails}/> 
         )
     }
 

@@ -1,7 +1,9 @@
   .detailedCountry {
     padding: 1em 2em;
     line-height: 2.2em;
-    font-size: 14px;
+    font-size: 14px;  
+    /* opacity: 0; */
+    animation: onOpen 2s;
 }
 
 .detailedCountry >  button {
@@ -48,7 +50,6 @@ h1 {
     border: none;
     transition: transform 250ms ease-in-out;
     margin: 0.2em;
-    /* padding: 0.5em 2em; */
 }
 
 .btn-secondary:hover,
@@ -63,8 +64,6 @@ h1 {
 
 .borderCountries__borders {
     display: flex;
-    /* justify-content: cen bter; */
-    /* align-items: center; */
     margin-top: 0.8em;
     flex-wrap: wrap;
 }
@@ -73,3 +72,34 @@ h1 {
     padding: 0.7em 1.5em;
 }
 
+@keyframes onOpen {
+    from {opacity: 0;}
+    to {opacity: 100%;}
+}
+
+@media (min-width: 700px) {
+    .detailedCountry {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 90vh;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+    
+    .flag {
+        margin-right: 5em;
+        max-width: 600px;
+    }
+     
+                       
+
+    .btn-primary {
+        position: absolute;
+        top: 10px; 
+        left: 220px;
+    }
+}

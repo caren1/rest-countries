@@ -43,6 +43,10 @@
     border: none;
 }
 
+.filters__region > select > option {
+    padding: 2em;
+}
+
 @media (min-width: 700px) {
     .filters{
         flex-direction: row;

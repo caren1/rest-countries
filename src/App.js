@@ -22,6 +22,10 @@ function App() {
     console.log(showCountryDetails);
   }
 
+  const onHideCountryDetails = () => {
+    setShowCountryDetails()
+  }
+
   useEffect(() => {
     async function getAllCountries () {
       const data = await getAll();
@@ -41,17 +45,38 @@ function App() {
       return false;
   })
 
-  return (
-    <div className="app">
+  if (!showCountryDetails) {
+    return (
+      <div className="app">   
+        <Header />
+        <Filters />
+        <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
+        {/* <DetailedCountry /> */}
+        {/* { countries && <CountryCard country={countries[0]}/>} */}
+      </div>
+    );
+  } else {
+    return (
+      <div className="app">   
+      {/* <Header />
+      <Filters /> */}
       <Header />
-      <Filters />
-      <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails}/>
+      <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
       {/* <DetailedCountry /> */}
       {/* { countries && <CountryCard country={countries[0]}/>} */}
-      
-      
     </div>
-  );
+    )
+  }
+
+  // return (
+  //   <div className="app">   
+  //     <Header />
+  //     <Filters />
+  //     <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
+  //     {/* <DetailedCountry /> */}
+  //     {/* { countries && <CountryCard country={countries[0]}/>} */}
+  //   </div>
+  // );
 }
 
 export default App;
