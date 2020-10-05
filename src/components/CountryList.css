@@ -3,7 +3,7 @@
     animation: onOpen 2s;
     /* max-width: 1440px; */
   }
-
+ 
 @media (min-width: 700px) {
     .countries {
         display: flex;

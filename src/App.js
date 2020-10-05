@@ -13,6 +13,7 @@ function App() {
 
   const countryFilter = useSelector(state => state.filter)
   const countryRegion = useSelector(state => state.region)
+  const theme = useSelector(state => state.theme)
 
   const [ countries, setCountries ] = useState([])
   const [ showCountryDetails, setShowCountryDetails ] = useState()
@@ -51,32 +52,17 @@ function App() {
         <Header />
         <Filters />
         <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
-        {/* <DetailedCountry /> */}
-        {/* { countries && <CountryCard country={countries[0]}/>} */}
       </div>
     );
   } else {
     return (
       <div className="app">   
-      {/* <Header />
-      <Filters /> */}
-      <Header />
-      <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
-      {/* <DetailedCountry /> */}
-      {/* { countries && <CountryCard country={countries[0]}/>} */}
+        <Header />
+        <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
     </div>
     )
   }
 
-  // return (
-  //   <div className="app">   
-  //     <Header />
-  //     <Filters />
-  //     <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
-  //     {/* <DetailedCountry /> */}
-  //     {/* { countries && <CountryCard country={countries[0]}/>} */}
-  //   </div>
-  // );
 }
 
 export default App;

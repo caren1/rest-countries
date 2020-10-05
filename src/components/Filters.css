@@ -47,6 +47,19 @@
     padding: 2em;
 }
 
+.filters__country:hover,
+.filters__country:focus,
+.filters__region:hover,
+.filters__region:focus {
+    transform: scale(1.01);
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.09);
+}
+
+.dark {
+    color: white !important;
+    background-color: hsl(209, 23%, 22%) !important;
+}
+
 @media (min-width: 700px) {
     .filters{
         flex-direction: row;

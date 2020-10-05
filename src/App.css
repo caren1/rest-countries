@@ -6,6 +6,10 @@
     margin: 0;
 }
 
+.dark {
+    background-color: hsl(207, 26%, 17%) !important;
+}
+
 
 
 
