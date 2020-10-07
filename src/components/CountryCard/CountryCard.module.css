@@ -20,7 +20,7 @@
 }
 
 
-.countryCard > .countryCard__image > img {
+.countryCard > .image > img {
     width: 100%;
     object-fit: contain;
     border-top-left-radius: 10px;
@@ -28,16 +28,16 @@
 
 }
 
-.countryCard__details {
+.details {
     padding: 2em 1.5em
 }
 
-.countryCard__details > h3 {
+.details > h3 {
     margin-bottom: 1em;
     margin-top: 0;
 }
 
-.countryCard__details > p > strong {
+.details > p > strong {
     font-weight: 700;
 }
 
@@ -49,16 +49,16 @@
         margin: 0.8em 0.5em;
     }
 
-    .countryCard__image {
+    .image {
         height: 200px;
     }
 
-    .countryCard > .countryCard__image > img {
+    .countryCard > .image > img {
         height: 170px;
         width: 100%;
         object-fit: cover;
     }
-    .countryCard__details {
+    .details {
         padding: 0em 1.5em
     }
     

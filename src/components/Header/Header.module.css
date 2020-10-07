@@ -13,18 +13,13 @@
     font-size: 1em;
 }
 
-.header > .themeToggle {
+.header > .buttonToggle {
     /* padding: 1em 2em; */
     font-size: .8em;
     background-color: transparent;
     border: none;
     cursor: pointer;
     font-weight: bolder;
-}
-
-.dark {
-    background-color: hsl(209, 23%, 22%) !important;
-    color: white !important;
 }
 
 button,

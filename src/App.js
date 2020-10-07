@@ -1,35 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux'
-import './App.css';
-
-
-import Header from './components/Header'
-import Filters from './components/Filters'
-
-import { getAll } from './api/index'
-import CountryList from './components/CountryList';
+import { Header, Filters, CountryList } from './components'
+import { fetchAll } from './api/index'
 
 function App() {
 
-  const countryFilter = useSelector(state => state.filter)
-  const countryRegion = useSelector(state => state.region)
-  const theme = useSelector(state => state.theme)
-
-  const [ countries, setCountries ] = useState([])
-  const [ showCountryDetails, setShowCountryDetails ] = useState()
-
-  const onShowCountryDetails = (country) => {
-    setShowCountryDetails(country)
-    console.log(showCountryDetails);
-  }
-
-  const onHideCountryDetails = () => {
-    setShowCountryDetails()
-  }
+ 
+  const [ countries, setCountries ] = useState([]);
+  const [ countriesFilter, setCountriesFilter ] = useState('');
+  const [ regionFilter, setRegionFilter ] = useState();
+  const [ showCountryDetails, setShowCountryDetails ] =  useState();
 
   useEffect(() => {
     async function getAllCountries () {
-      const data = await getAll();
+      const data = await fetchAll();
       if (data) {
         console.log(data);
         setCountries(data);
@@ -37,32 +20,28 @@ function App() {
     }
     getAllCountries();
   }, [])
-
-
-  const filterByBoth = countries.filter((country) => {
-      if (country.name.toLowerCase().includes(countryFilter) && country.region.toLowerCase().includes(countryRegion.toLowerCase())){
-        return true;
-      }
-      return false;
-  })
-
-  if (!showCountryDetails) {
-    return (
-      <div className="app">   
-        <Header />
-        <Filters />
-        <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
-      </div>
-    );
-  } else {
-    return (
-      <div className="app">   
-        <Header />
-        <CountryList countries={filterByBoth} onShowCountryDetails={onShowCountryDetails} showCountryDetails={showCountryDetails} hideCountryDetails={onHideCountryDetails}/>
-    </div>
-    )
+  
+  const handleCountriesFilter = (event) => {
+    setCountriesFilter(event.target.value); 
+    setShowCountryDetails();
   }
 
+  const handleRegionFilter = (region) => {
+    setRegionFilter(region);
+    setShowCountryDetails();
+  }
+
+  const onShowCountryDetails = (country) => {
+    setShowCountryDetails(country);
+  }
+  
+  return (
+    <div className="App">
+     <Header /> 
+     <Filters onCountryFilterChange={handleCountriesFilter} onRegionFilterChange={handleRegionFilter}/>
+     <CountryList countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails}/>
+    </div>
+  );
 }
 
 export default App;

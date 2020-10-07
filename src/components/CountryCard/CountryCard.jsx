@@ -1,16 +1,16 @@
 import React from 'react'
-import './CountryCard.css'
+import styles from './CountryCard.module.css'
 
-function CountryCard({country, showDetails}) {
+const CountryCard = ({ country, }) => {
 
     const { name, population, region, capital, flag } = country;
 
     return (
-        <div className="countryCard" onClick={() => showDetails(country)}>
-            <div className="countryCard__image">
+        <div className={styles.countryCard} onClick={() => console.log('clickedCountry')}>
+            <div className={styles.image}>
                 <img src={flag} alt="" />
-            </div>
-            <div className="countryCard__details">
+            </div>      
+            <div className={styles.details}>
                 <h3>{name}</h3>
                 <p><strong>Population:</strong> {population}</p>
                 <p><strong>Region:</strong> {region}</p>

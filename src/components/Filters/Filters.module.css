@@ -6,7 +6,7 @@
     
 }
 
-.filters__country {
+.country {
     background-color: white;
     padding: 1em 2em;
     width: 100%;
@@ -18,18 +18,18 @@
 
 }
 
-.filters__country > .fa-search{
+.country > .fa-search{
     color: hsl(0, 0%, 52%);
 }
 
-.filters__country > input {
+.country > input {
     outline: none;
     border: none;
     width: 90%;
     margin-left: 1em;
 }
 
-.filters__region {
+.region {
     align-self: flex-start;
     margin-top: 1em;
     background-color: white;
@@ -38,26 +38,21 @@
     box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.05);
 }
 
-.filters__region > select {
+.region > select {
     outline: none;
     border: none;
 }
 
-.filters__region > select > option {
+.region > select > option {
     padding: 2em;
 }
 
-.filters__country:hover,
-.filters__country:focus,
-.filters__region:hover,
-.filters__region:focus {
+.country:hover,
+.country:focus,
+.region:hover,
+.region:focus {
     transform: scale(1.01);
     box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.09);
-}
-
-.dark {
-    color: white !important;
-    background-color: hsl(209, 23%, 22%) !important;
 }
 
 @media (min-width: 700px) {
@@ -67,11 +62,11 @@
         align-items: center;
     }
 
-    .filters__country {
+    .country {
         max-width: 35%;
     }
     
-    .filters__region {
+    .region {
         margin-top: 0;
     }
 }

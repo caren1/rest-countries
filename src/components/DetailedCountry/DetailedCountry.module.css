@@ -1,12 +1,12 @@
-  .detailedCountry {
+.detailedCountry {
     padding: 1em 2em;
     line-height: 2.2em;
-    font-size: 14px;  
+    font-size: 14px;
     /* opacity: 0; */
     animation: onOpen 2s;
 }
 
-.detailedCountry >  button {
+.detailedCountry>button {
     margin: 2em 0;
     display: block;
 }
@@ -15,7 +15,7 @@
     margin: 3em 0;
 }
 
-.flag > img {
+.flag>img {
     width: 100%;
 }
 
@@ -24,11 +24,11 @@ h1 {
     font-size: 1.5em;
 }
 
-.levelDomain {
+.bottomSection {
     margin-top: 2em;
 }
 
-.btn-primary {
+.buttonBack {
     background-color: white;
     padding: 0.8em 3em;
     border-radius: 1px;
@@ -37,13 +37,13 @@ h1 {
     transition: transform 250ms ease-in-out;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
+.buttonBack:hover,
+.buttonBack:focus {
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.btn-secondary {
+.buttonBorder  {
     background-color: white;
     border-radius: 1px;
     box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.05);
@@ -52,8 +52,8 @@ h1 {
     margin: 0.2em;
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
+.buttonBorder:hover,
+.buttonBorder:focus {
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -62,51 +62,56 @@ h1 {
     margin-top: 2em;
 }
 
-.borderCountries__borders {
+.borders {
     display: flex;
     margin-top: 0.8em;
     flex-wrap: wrap;
 }
 
-.borderCountries__borders > button {
+.borders>button {
     padding: 0.7em 1.5em;
 }
 
 @keyframes onOpen {
-    from {opacity: 0;}
-    to {opacity: 100%;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100%;
+    }
 }
 
 
 @media (min-width: 700px) {
     .detailedCountry {
-        display: flex; 
+        display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
         height: 90vh;
     }
 
-    h1 {
+    h1 {  
         font-size: 2em;
     }
-    
+
     .flag {
         margin-right: 5em;
         max-width: 400px;
     }
-     
-                       
 
-    .btn-primary {
+
+
+    .buttonBack {
         position: absolute;
-        top: 10px; 
+        top: 10px;
         left: 220px;
     }
 }
 
 @media (min-width: 850px) {
-      .flag {
-          max-width: 600px; 
-      }
+    .flag {
+        max-width: 600px;
+    }
 }
