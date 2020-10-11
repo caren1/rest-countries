@@ -7,7 +7,7 @@ function App() {
  
   const [ countries, setCountries ] = useState([]);
   const [ countriesFilter, setCountriesFilter ] = useState('');
-  const [ regionFilter, setRegionFilter ] = useState();
+  const [ regionFilter, setRegionFilter ] = useState('');
   const [ showCountryDetails, setShowCountryDetails ] =  useState();
 
   useEffect(() => {
@@ -23,6 +23,7 @@ function App() {
   
   const handleCountriesFilter = (event) => {
     setCountriesFilter(event.target.value); 
+    console.log(event.target.value);
     setShowCountryDetails();
   }
 
