@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './DetailedCountry.module.css'
 
-const DetailedCountry = ({ country }) => {
+const DetailedCountry = ({ country, onHideCountryDetails }) => {
 
 return (
 <div className={styles.detailedCountry}>
-    <button className={styles.buttonBack} onClick={()=> console.log('hiding details')}>Back</button>
+    <button className={styles.buttonBack} onClick={onHideCountryDetails}>Back</button>
     <div className="flag">
         <img src={country.flag} alt="" />
     </div> 

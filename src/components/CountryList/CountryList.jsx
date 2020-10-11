@@ -2,7 +2,7 @@ import React from 'react'
 import { CountryCard, DetailedCountry } from '..'
 import styles from './CountryList.module.css'
 
-const CountryList = ({ countries, countryFilter, regionFilter, showCountryDetails, onShowCountryDetails }) => {
+const CountryList = ({ countries, countryFilter, regionFilter, showCountryDetails, onShowCountryDetails, onHideCountryDetails}) => {
     
     // console.log('list 1', countries);
     // console.log('list 2',countryFilter);
@@ -22,25 +22,24 @@ const CountryList = ({ countries, countryFilter, regionFilter, showCountryDetail
         })
     }
     
- 
 if (filteredCountries.length > 1 && !showCountryDetails) {
     return (
         <div className={styles.countries}>
             {filteredCountries.map((country) => (
-            <CountryCard key={country.numericCode} country={country} showDetails={onShowCountryDetails} />
+            <CountryCard key={country.numericCode} country={country} onShowCountryDetails={onShowCountryDetails} />
             ))}
         </div>
         )
 
 } else if (filteredCountries.length === 1 && !showCountryDetails) {
     const theOnlyCountry = filteredCountries[0];
-    return (<DetailedCountry country={theOnlyCountry}/>)
+    return (<DetailedCountry country={theOnlyCountry} onHideCountryDetails={onHideCountryDetails}/>)
 
 }  else if (filteredCountries.length < 1 && !showCountryDetails) {
     return (<div><h2>Unfortunately, there are no countries matching the filters.</h2></div>)
 
 } else if (showCountryDetails) {
-    return (<DetailedCountry country={showCountryDetails}/>)
+    return (<DetailedCountry country={showCountryDetails} onHideCountryDetails={onHideCountryDetails} />)
 }
 
 }

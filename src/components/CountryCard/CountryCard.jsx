@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './CountryCard.module.css'
 
-const CountryCard = ({ country, }) => {
+const CountryCard = ({ country, onShowCountryDetails }) => {
 
     const { name, population, region, capital, flag } = country;
 
     return (
-        <div className={styles.countryCard} onClick={() => console.log('clickedCountry')}>
+        <div className={styles.countryCard} onClick={() => onShowCountryDetails (country)}>
             <div className={styles.image}>
                 <img src={flag} alt="" />
             </div>      

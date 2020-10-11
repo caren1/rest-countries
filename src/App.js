@@ -33,14 +33,20 @@ function App() {
   }
 
   const onShowCountryDetails = (country) => {
+    setCountriesFilter('');
     setShowCountryDetails(country);
+  }
+
+  const onHideCountryDetails = () => {
+    setCountriesFilter('');
+    setShowCountryDetails(); 
   }
   
   return (
     <div className="App">
      <Header /> 
-     <Filters onCountryFilterChange={handleCountriesFilter} onRegionFilterChange={handleRegionFilter}/>
-     <CountryList countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails}/>
+     <Filters countriesFilter={countriesFilter} onCountryFilterChange={handleCountriesFilter} onRegionFilterChange={handleRegionFilter}/>
+     <CountryList countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails} onHideCountryDetails={onHideCountryDetails}/>
     </div>
   );
 }

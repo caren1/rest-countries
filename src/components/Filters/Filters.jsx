@@ -4,7 +4,7 @@ import styles from './Filters.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-const Filters = ({ onCountryFilterChange, onRegionFilterChange }) => {
+const Filters = ({countriesFilter, onCountryFilterChange, onRegionFilterChange }) => {
 
     const [ region, setRegion ] = useState('');
 
@@ -19,7 +19,7 @@ return (
 <div className={styles.filters}>
     <div className={styles.country}>
         <FontAwesomeIcon icon={faSearch} />
-        <input type="text" name="countryPicker" id={styles.countryPicker} placeholder="Search for a country..."
+        <input value={countriesFilter} type="text" name="countryPicker" id={styles.countryPicker} placeholder="Search for a country..."
             onChange={onCountryFilterChange} />
     </div>
     <div className={styles.region}>
