@@ -1,17 +1,14 @@
-import React, { useState  } from 'react'
+import React from 'react'
 import styles from './Filters.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
-const Filters = ({countriesFilter, onCountryFilterChange, onRegionFilterChange }) => {
+const Filters = ({countriesFilter, onCountryFilterChange, regionFilter, onRegionFilterChange }) => {
 
-    const [ region, setRegion ] = useState('');
 
- 
     const handleRegionChange = (event) =>  {
-        setRegion(event.target.value);
-        onRegionFilterChange(region);
+        onRegionFilterChange(event.target.value);
     }
 
 
@@ -23,11 +20,12 @@ return (
             onChange={onCountryFilterChange} />
     </div>
     <div className={styles.region}>
-        <select value={region} name="Filter by Region" id={styles.regionFilter} onChange={handleRegionChange}>
+        <select value={regionFilter} name="Filter by Region" id={styles.regionFilter} onChange={handleRegionChange}>
             <option value="">Filter By Region</option>
+            <option value="">None</option>
             <option value="Africa">Africa</option>
             <option value="America">America</option>
-            <option value="Asia">Asia</option>
+            <option value="Asia">Asia</option> 
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
         </select> 

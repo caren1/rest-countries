@@ -12,3 +12,13 @@ export const fetchAll = async () => {
         console.log(error);
     }
 }
+
+
+export const fetchOne = async (country) => {
+    try {
+        const { data } = await axios.get(`${baseUrl}/alpha/${country}`)
+        return data;
+    }catch (error) {
+        console.log(error);
+    }
+}

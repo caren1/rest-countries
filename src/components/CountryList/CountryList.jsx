@@ -33,13 +33,13 @@ if (filteredCountries.length > 1 && !showCountryDetails) {
 
 } else if (filteredCountries.length === 1 && !showCountryDetails) {
     const theOnlyCountry = filteredCountries[0];
-    return (<DetailedCountry country={theOnlyCountry} onHideCountryDetails={onHideCountryDetails}/>)
+    return (<DetailedCountry country={theOnlyCountry} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
 
 }  else if (filteredCountries.length < 1 && !showCountryDetails) {
     return (<div><h2>Unfortunately, there are no countries matching the filters.</h2></div>)
 
 } else if (showCountryDetails) {
-    return (<DetailedCountry country={showCountryDetails} onHideCountryDetails={onHideCountryDetails} />)
+    return (<DetailedCountry country={showCountryDetails} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
 }
 
 }

@@ -12,7 +12,8 @@
 }
 
 .flag {
-    margin: 3em 0;
+    margin: 2em auto;
+    max-width: 90%;
 }
 
 .flag>img {
@@ -89,7 +90,7 @@ h1 {
         justify-content: center;
         align-items: center;
         position: relative;
-        height: 90vh;
+        height: 100vh;
     }
 
     h1 {  
@@ -99,19 +100,20 @@ h1 {
     .flag {
         margin-right: 5em;
         max-width: 400px;
+        box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 0.2);
+
     }
-
-
 
     .buttonBack {
         position: absolute;
         top: 10px;
-        left: 220px;
+        left: 30px;
     }
 }
 
 @media (min-width: 850px) {
     .flag {
-        max-width: 600px;
+        max-width: 55%;
+        margin: 0 5em 0 0;
     }
 }

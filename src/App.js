@@ -10,10 +10,12 @@ function App() {
   const [ regionFilter, setRegionFilter ] = useState('');
   const [ showCountryDetails, setShowCountryDetails ] =  useState();
 
+  console.log(regionFilter);
+
   useEffect(() => {
     async function getAllCountries () {
       const data = await fetchAll();
-      if (data) {
+      if (data) { 
         console.log(data);
         setCountries(data);
       }
@@ -23,7 +25,7 @@ function App() {
   
   const handleCountriesFilter = (event) => {
     setCountriesFilter(event.target.value); 
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setShowCountryDetails();
   }
 
@@ -41,11 +43,19 @@ function App() {
     setCountriesFilter('');
     setShowCountryDetails(); 
   }
+
+  if (showCountryDetails) {
+    return (
+      <div className="App">
+            <CountryList countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails} onHideCountryDetails={onHideCountryDetails}/>
+     </div>
+    )
+  }
   
   return (
     <div className="App">
      <Header /> 
-     <Filters countriesFilter={countriesFilter} onCountryFilterChange={handleCountriesFilter} onRegionFilterChange={handleRegionFilter}/>
+     <Filters countriesFilter={countriesFilter} onCountryFilterChange={handleCountriesFilter} regionFilter={regionFilter} onRegionFilterChange={handleRegionFilter}/>
      <CountryList countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails} onHideCountryDetails={onHideCountryDetails}/>
     </div>
   );

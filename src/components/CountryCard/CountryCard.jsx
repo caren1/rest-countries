@@ -6,7 +6,7 @@ const CountryCard = ({ country, onShowCountryDetails }) => {
     const { name, population, region, capital, flag } = country;
 
     return (
-        <div className={styles.countryCard} onClick={() => onShowCountryDetails (country)}>
+        <div className={styles.countryCard} onClick={() => onShowCountryDetails(country)}>
             <div className={styles.image}>
                 <img src={flag} alt="" />
             </div>      

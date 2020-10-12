@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './DetailedCountry.module.css'
 
-const DetailedCountry = ({ country, onHideCountryDetails }) => {
+import { fetchOne } from '../../api/index'
 
+const DetailedCountry = ({ country, onShowCountryDetails, onHideCountryDetails }) => {
+
+    const [ borderCountries, setBorderCountries ] = useState([])
+
+    const asyncBorders = async (border) => {
+        return Promise.resolve(fetchOne(border));
+    }
+   
+
+    useEffect(() => {
+    
+        const getBorderCountries = async () => {
+            const fetchedBorders = await Promise.all(country.borders.map((border) =>
+            asyncBorders(border)))
+            if (fetchedBorders) {
+                setBorderCountries(fetchedBorders)
+            }
+        } 
+         getBorderCountries();
+    }, [])
+
+
+
+    console.log('here ', borderCountries);
 return (
 <div className={styles.detailedCountry}>
-    <button className={styles.buttonBack} onClick={onHideCountryDetails}>Back</button>
-    <div className="flag">
+    <button className={styles.buttonBack} onClick={onHideCountryDetails}> ← Back</button>
+    <div className={styles.flag}>
         <img src={country.flag} alt="" />
     </div> 
     <div className={styles.details}>
@@ -28,8 +52,8 @@ return (
         <div className={styles.borderCountries}>
             <p className={styles.title}><strong>Border Countries:</strong></p>
             <div className={styles.borders}>
-                {country.borders.map((border) => (
-                <button className={styles.buttonBorder} key={border}>{border}</button>
+                {borderCountries.map((country) => (
+                <button className={styles.buttonBorder} key={country.alphaCode} onClick={() => onShowCountryDetails(country)}>{country.name}</button>
                 ))}
             </div>
         </div>
