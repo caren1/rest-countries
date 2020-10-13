@@ -4,15 +4,11 @@ import { fetchAll } from './api/index'
 
 function App() {
 
- 
   const [ countries, setCountries ] = useState([]);
   const [ countriesFilter, setCountriesFilter ] = useState('');
   const [ regionFilter, setRegionFilter ] = useState('');
   const [ showCountryDetails, setShowCountryDetails ] =  useState();
   const [ darkMode, setDarkMode ] = useState(false);
-
-
-  console.log(regionFilter);
 
   useEffect(() => {
     async function getAllCountries () {
@@ -27,7 +23,6 @@ function App() {
   
   const handleCountriesFilter = (event) => {
     setCountriesFilter(event.target.value); 
-    // console.log(event.target.value);
     setShowCountryDetails();
   }
 

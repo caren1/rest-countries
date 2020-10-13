@@ -1,24 +1,20 @@
 .header {
     background-color: white;
-    /* position: fixed; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5em 1.5em;
     box-shadow: 0 0 0.4em 0 rgba(0, 0, 0, 0.1);
     animation: onOpen 2s;
-
 }
 
-.header > h2 {
+.header>h2 {
     font-weight: bolder;
     font-size: 1em;
     animation: onOpen 2s;
-
 }
 
-.header > .buttonToggle {
-    /* padding: 1em 2em; */
+.header>.buttonToggle {
     font-size: .8em;
     background-color: transparent;
     border: none;
@@ -26,17 +22,16 @@
     font-weight: bolder;
     animation: onOpen 2s;
     transition: transform 250ms;
-
 }
 
 button,
-button:focus{
+button:focus {
     outline: none;
 }
 
-button:hover{
-    transform: scale(1.05);   
-    
+button:hover {
+    transform: scale(1.05);
+
 }
 
 .dark {
@@ -44,8 +39,12 @@ button:hover{
     color: hsl(0, 0%, 98%) !important;
 
 }
- 
+
 @keyframes onOpen {
-    from {opacity: 0;}
-    to {opacity: 100%;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
 }

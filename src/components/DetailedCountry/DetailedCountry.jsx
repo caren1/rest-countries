@@ -12,7 +12,6 @@ const DetailedCountry = ({ theme, country, onShowCountryDetails, onHideCountryDe
         return Promise.resolve(fetchOne(border));
     }
    
-
     useEffect(() => {
     
         const getBorderCountries = async () => {
@@ -24,9 +23,7 @@ const DetailedCountry = ({ theme, country, onShowCountryDetails, onHideCountryDe
         } 
          getBorderCountries();
     }, [country])
-
-    // console.log('here ', borderCountries);
-
+ 
     if (!theme) {
         return (
             <div className={styles.detailedCountry}>
