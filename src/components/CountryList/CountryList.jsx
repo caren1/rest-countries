@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import cx from 'classnames';
 import { CountryCard, DetailedCountry } from '..'
 import styles from './CountryList.module.css'
 
-const CountryList = ({ countries, countryFilter, regionFilter, showCountryDetails, onShowCountryDetails, onHideCountryDetails}) => {
+const CountryList = ({ theme,  countries, countryFilter, regionFilter, showCountryDetails, onShowCountryDetails, onHideCountryDetails}) => {
     
     // console.log('list 1', countries);
     // console.log('list 2',countryFilter);
@@ -21,27 +22,48 @@ const CountryList = ({ countries, countryFilter, regionFilter, showCountryDetail
             }       
         })
     }
-    
-if (filteredCountries.length > 1 && !showCountryDetails) {
-    return (
-        <div className={styles.countries}>
-            {filteredCountries.map((country) => (
-            <CountryCard key={country.numericCode} country={country} onShowCountryDetails={onShowCountryDetails} />
-            ))}
-        </div>
-        )
 
-} else if (filteredCountries.length === 1 && !showCountryDetails) {
-    const theOnlyCountry = filteredCountries[0];
-    return (<DetailedCountry country={theOnlyCountry} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
-
-}  else if (filteredCountries.length < 1 && !showCountryDetails) {
-    return (<div><h2>Unfortunately, there are no countries matching the filters.</h2></div>)
-
-} else if (showCountryDetails) {
-    return (<DetailedCountry country={showCountryDetails} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
-}
-
+    if (!theme) {
+        if (filteredCountries.length > 1 && !showCountryDetails) {
+            return (
+                <div className={styles.countries}>
+                    {filteredCountries.map((country) => (
+                    <CountryCard theme={theme} key={country.numericCode} country={country} onShowCountryDetails={onShowCountryDetails} />
+                    ))}
+                </div>
+                )
+        
+        } else if (filteredCountries.length === 1 && !showCountryDetails) {
+            const theOnlyCountry = filteredCountries[0];
+            return (<DetailedCountry theme={theme} country={theOnlyCountry} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
+        
+        }  else if (filteredCountries.length < 1 && !showCountryDetails) {
+            return (<div><h2>Unfortunately, there are no countries matching the filters.</h2></div>)
+        
+        } else if (showCountryDetails) {
+            return (<DetailedCountry theme={theme} country={showCountryDetails} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
+        }
+    } else {
+        if (filteredCountries.length > 1 && !showCountryDetails) {
+            return (
+                <div className={cx(styles.countries, styles.darkCountries)}>
+                    {filteredCountries.map((country) => (
+                    <CountryCard theme={theme} key={country.numericCode} country={country} onShowCountryDetails={onShowCountryDetails} />
+                    ))}
+                </div>
+                )
+        
+        } else if (filteredCountries.length === 1 && !showCountryDetails) {
+            const theOnlyCountry = filteredCountries[0];
+            return (<DetailedCountry theme={theme} country={theOnlyCountry} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
+        
+        }  else if (filteredCountries.length < 1 && !showCountryDetails) {
+            return (<div><h2>Unfortunately, there are no countries matching the filters.</h2></div>)
+        
+        } else if (showCountryDetails) {
+            return (<DetailedCountry theme={theme} country={showCountryDetails} onHideCountryDetails={onHideCountryDetails} onShowCountryDetails={onShowCountryDetails}/>)
+        } 
+    }
 }
 
 export default CountryList;

@@ -67,6 +67,7 @@ h1 {
     display: flex;
     margin-top: 0.8em;
     flex-wrap: wrap;
+    max-width: 500px;
 }
 
 .borders>button {

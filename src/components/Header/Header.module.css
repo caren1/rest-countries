@@ -6,11 +6,15 @@
     align-items: center;
     padding: 1.5em 1.5em;
     box-shadow: 0 0 0.4em 0 rgba(0, 0, 0, 0.1);
+    animation: onOpen 2s;
+
 }
 
 .header > h2 {
     font-weight: bolder;
     font-size: 1em;
+    animation: onOpen 2s;
+
 }
 
 .header > .buttonToggle {
@@ -20,9 +24,28 @@
     border: none;
     cursor: pointer;
     font-weight: bolder;
+    animation: onOpen 2s;
+    transition: transform 250ms;
+
 }
 
 button,
 button:focus{
     outline: none;
+}
+
+button:hover{
+    transform: scale(1.05);   
+    
+}
+
+.dark {
+    background-color: hsl(209, 23%, 22%) !important;
+    color: hsl(0, 0%, 98%) !important;
+
+}
+ 
+@keyframes onOpen {
+    from {opacity: 0;}
+    to {opacity: 100%;}
 }

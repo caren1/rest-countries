@@ -70,3 +70,18 @@
         margin-top: 0;
     }
 }
+
+.dark,
+.dark > input,
+.dark > select {
+    background-color: hsl(209, 23%, 22%) !important;
+    color: hsl(0, 0%, 98%) !important;
+}
+
+.dark > input::placeholder {
+    color: hsl(0, 0%, 98%) !important;
+}
+
+.darkFilters {
+    background-color: hsl(207, 26%, 17%) !important;
+}

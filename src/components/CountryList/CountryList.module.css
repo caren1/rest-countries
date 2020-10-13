@@ -19,3 +19,7 @@
     to {opacity: 100%;}
 }
 
+.darkCountries {
+    background-color: hsl(207, 26%, 17%) !important;
+    color: hsl(0, 0%, 98%) !important  ; 
+}

@@ -9,13 +9,15 @@ function App() {
   const [ countriesFilter, setCountriesFilter ] = useState('');
   const [ regionFilter, setRegionFilter ] = useState('');
   const [ showCountryDetails, setShowCountryDetails ] =  useState();
+  const [ darkMode, setDarkMode ] = useState(false);
+
 
   console.log(regionFilter);
 
   useEffect(() => {
     async function getAllCountries () {
       const data = await fetchAll();
-      if (data) { 
+      if (data) {  
         console.log(data);
         setCountries(data);
       }
@@ -44,6 +46,10 @@ function App() {
     setShowCountryDetails(); 
   }
 
+  const handleThemeToggle = () => {
+    setDarkMode(!darkMode);
+  }
+
   if (showCountryDetails) {
     return (
       <div className="App">
@@ -54,9 +60,9 @@ function App() {
   
   return (
     <div className="App">
-     <Header /> 
-     <Filters countriesFilter={countriesFilter} onCountryFilterChange={handleCountriesFilter} regionFilter={regionFilter} onRegionFilterChange={handleRegionFilter}/>
-     <CountryList countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails} onHideCountryDetails={onHideCountryDetails}/>
+     <Header theme={darkMode} handleThemeToggle={handleThemeToggle}/> 
+     <Filters theme={darkMode} countriesFilter={countriesFilter} onCountryFilterChange={handleCountriesFilter} regionFilter={regionFilter} onRegionFilterChange={handleRegionFilter}/>
+     <CountryList theme={darkMode} countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails} onHideCountryDetails={onHideCountryDetails}/>
     </div>
   );
 }
