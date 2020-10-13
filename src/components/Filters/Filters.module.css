@@ -3,6 +3,8 @@
     display: flex;
     margin: 0 auto;
     flex-direction: column;
+    animation: onOpen 2s;
+
     
 }
 
@@ -84,4 +86,9 @@
 
 .darkFilters {
     background-color: hsl(207, 26%, 17%) !important;
+}
+
+@keyframes onOpen {
+    from {opacity: 0;}
+    to {opacity: 100%;}
 }

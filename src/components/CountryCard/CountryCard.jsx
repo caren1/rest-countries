@@ -22,7 +22,7 @@ const CountryCard = ({ theme, country, onShowCountryDetails }) => {
         )
     } else {
         return (
-            <div className={styles.countryCard} onClick={() => onShowCountryDetails(country)}>
+            <div className={cx(styles.countryCard, styles.dark)} onClick={() => onShowCountryDetails(country)}>
                 <div className={styles.image}>
                     <img src={flag} alt="" />
                 </div>      

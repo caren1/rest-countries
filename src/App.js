@@ -44,7 +44,7 @@ function App() {
   const onHideCountryDetails = () => {
     setCountriesFilter('');
     setShowCountryDetails(); 
-  }
+  } 
 
   const handleThemeToggle = () => {
     setDarkMode(!darkMode);
@@ -53,7 +53,8 @@ function App() {
   if (showCountryDetails) {
     return (
       <div className="App">
-            <CountryList countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails} onHideCountryDetails={onHideCountryDetails}/>
+        <Header theme={darkMode} handleThemeToggle={handleThemeToggle}/> 
+        <CountryList theme={darkMode} countries={countries} countryFilter={countriesFilter} regionFilter={regionFilter} showCountryDetails={showCountryDetails} onShowCountryDetails={onShowCountryDetails} onHideCountryDetails={onHideCountryDetails}/>
      </div>
     )
   }
